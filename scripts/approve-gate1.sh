@@ -74,24 +74,32 @@ fi
 APPROVED_AT=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
 
 python3 - <<PYEOF
-import re
-
 with open('$BLUEPRINT', 'r') as f:
-    content = f.read()
+    lines = f.readlines()
 
-content = re.sub(
-    r'(  gate1:\n    status:)\s*pending',
-    r'\1 approved',
-    content
-)
-content = re.sub(
-    r'(  gate1:\n    status: approved\n    approved_at:)\s*null',
-    r'\1 "$APPROVED_AT"',
-    content
-)
+in_gate1 = False
+gate1_indent = -1
+
+for i, line in enumerate(lines):
+    stripped = line.lstrip()
+    indent = len(line) - len(stripped)
+
+    if stripped.rstrip('\n') == 'gate1:':
+        in_gate1 = True
+        gate1_indent = indent
+        continue
+
+    if in_gate1:
+        if stripped and indent <= gate1_indent:
+            in_gate1 = False
+            continue
+        if stripped.startswith('status:') and 'pending' in stripped:
+            lines[i] = line.replace('pending', 'approved', 1)
+        elif stripped.startswith('approved_at:') and 'null' in stripped:
+            lines[i] = line.replace('null', '"$APPROVED_AT"', 1)
 
 with open('$BLUEPRINT', 'w') as f:
-    f.write(content)
+    f.writelines(lines)
 
 print('Blueprint actualizado')
 PYEOF

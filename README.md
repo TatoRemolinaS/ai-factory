@@ -77,8 +77,9 @@ El flujo completo tiene dos capas: un **sistema de onboarding del cliente** que 
 | **Coder** | Solo fábrica | Construcción de módulos (corre en paralelo, N instancias) |
 | **QA** | Solo fábrica | Validación por archivo (Gate 2) e integración completa (Gate 3) |
 
-> Research y Estilista tienen un flag `MODO` en su system prompt que define
-> el scope y formato de output según la capa en que operan.
+> El CEO incluye el flag `MODO: preflight` o `MODO: fabrica` en cada instrucción
+> a Research y Estilista. Ese flag define el scope y formato de output según la capa
+> en que operan — sin él, ambos agentes no saben qué producir.
 
 ---
 
