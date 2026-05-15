@@ -1,0 +1,93 @@
+# Blueprint Contract — [Nombre del Proyecto]
+# Generado por: CTO
+# Fecha: [ISO 8601]
+# Versión: 1.0
+
+project:
+  name: string
+  slug: string
+  type: landing | app | both
+  stack:
+    frontend: string  # ej: "Next.js 14 + TypeScript + Tailwind CSS"
+    backend: string   # ej: "Next.js API Routes" | "FastAPI" | "Node/Express"
+    database: string  # ej: "Supabase (PostgreSQL + RLS)"
+    hosting: string   # ej: "Vercel"
+    auth: string      # ej: "Supabase Auth" | "NextAuth.js" | "none"
+
+architecture:
+  pattern: string     # ej: "Monolith" | "API + SPA" | "Fullstack Next.js"
+  data_flow: string   # descripción en 1-2 oraciones de cómo fluyen los datos
+  auth_strategy: string  # descripción de cómo se maneja la autenticación
+
+modules:
+  - id: string              # snake_case, único
+    name: string            # nombre legible
+    type: frontend | backend | fullstack | integration
+    wave: integer           # 1 = primer batch paralelo, 2 = segundo, etc.
+    priority: integer       # orden dentro del mismo wave
+    complexity: low | medium | high
+    estimated_days: integer
+    responsibility: string  # 1 oración — qué hace este módulo
+    features_covered:       # IDs del Project Dictionary que cubre
+      - string
+    inputs:                 # qué necesita de otros módulos para funcionar
+      - module: string      # ID del módulo del que depende
+        data: string        # qué dato específico necesita
+    outputs:                # qué expone para que otros módulos lo consuman
+      - consumer: string    # ID del módulo que lo consume
+        data: string        # qué dato específico provee
+    endpoints:              # solo para módulos backend/fullstack
+      - method: GET | POST | PUT | DELETE | PATCH
+        path: string        # ej: "/api/clients/:id/documents"
+        auth_required: boolean
+        roles: [string]     # roles que pueden acceder
+        description: string
+    data_models:            # entidades de base de datos que maneja este módulo
+      - name: string        # nombre de la tabla/colección
+        fields:
+          - name: string
+            type: string    # ej: "uuid", "text", "boolean", "timestamp"
+            required: boolean
+            notes: string | null
+    ui_components:          # solo para módulos frontend/fullstack
+      - name: string
+        description: string
+    security_notes: string | null
+    implementation_notes: string | null  # notas específicas para el Coder
+
+integrations:
+  - service: string
+    purpose: string
+    module: string          # ID del módulo que lo implementa
+    api_version: string
+    docs_url: string
+    env_vars:               # variables de entorno necesarias
+      - name: string        # ej: "OPENAI_API_KEY"
+        description: string
+
+environment_variables:      # todas las env vars del proyecto consolidadas
+  - name: string
+    description: string
+    required: boolean
+    example: string | null
+
+deployment:
+  environments:
+    - name: development | staging | production
+      config: string        # notas de configuración específicas
+  build_command: string
+  start_command: string
+  notes: string | null
+
+gates:
+  gate1:
+    status: pending
+    approved_at: null
+    approved_by: null
+    notes: null
+  gate2:
+    status: pending         # se actualiza módulo por módulo
+    modules_approved: []
+  gate3:
+    status: pending
+    approved_at: null

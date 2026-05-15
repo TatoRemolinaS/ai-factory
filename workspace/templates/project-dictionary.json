@@ -1,0 +1,79 @@
+{
+  "project": {
+    "name": "string — nombre del proyecto",
+    "slug": "string — lowercase, guiones, sin espacios",
+    "type": "landing | app | both",
+    "description": "string — 2-3 oraciones precisas: qué es, para quién, qué problema resuelve",
+    "timeline": "string — fecha o rango",
+    "generated_at": "ISO 8601 timestamp"
+  },
+
+  "users": [
+    {
+      "role": "string — nombre del rol, ej: Admin, Usuario final",
+      "description": "string — qué hace este rol en el sistema",
+      "permissions": ["string — acción que puede realizar"],
+      "primary": true
+    }
+  ],
+
+  "features": {
+    "mvp": [
+      {
+        "id": "string — snake_case único, ej: user_auth",
+        "name": "string — nombre legible",
+        "description": "string — qué hace y por qué es necesario",
+        "priority": 1,
+        "roles": ["string — rol que usa esta feature"]
+      }
+    ],
+    "out_of_scope": [
+      "string — feature explícitamente fuera del MVP"
+    ]
+  },
+
+  "stack": {
+    "frontend": "string — ej: Next.js 14 + TypeScript + Tailwind CSS",
+    "backend": "string — ej: Next.js API Routes | FastAPI | Node/Express",
+    "database": "string — ej: Supabase (PostgreSQL + RLS)",
+    "hosting": "string — ej: Vercel",
+    "auth": "string — ej: Supabase Auth | NextAuth.js | none"
+  },
+
+  "integrations": [
+    {
+      "service": "string — nombre del servicio externo",
+      "purpose": "string — para qué se usa en este proyecto",
+      "mvp": true
+    }
+  ],
+
+  "design": {
+    "feeling": ["string — palabra clave del brief, ej: moderno, cálido"],
+    "references": [
+      {
+        "url": "string | null",
+        "description": "string — qué es esta referencia",
+        "aspect": "string — qué aspecto de ella interesa"
+      }
+    ],
+    "palette": {
+      "primary": "string — hex code",
+      "secondary": "string | null",
+      "accent": "string | null",
+      "background": "string | null",
+      "surface": "string | null",
+      "text_primary": "string | null",
+      "text_secondary": "string | null"
+    },
+    "typography": {
+      "heading": "string — nombre de la fuente",
+      "body": "string — nombre de la fuente"
+    },
+    "logo": {
+      "status": "provided | needs_redesign | to_create",
+      "format": "svg | png | none",
+      "notes": "string | null"
+    }
+  }
+}

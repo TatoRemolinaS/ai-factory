@@ -1,0 +1,34 @@
+{
+  "project": "string — nombre del proyecto",
+  "mode": "preflight",
+  "generated_at": "ISO 8601",
+
+  "sector": {
+    "name": "string — nombre del sector o industria",
+    "description": "string — 2-3 oraciones sobre el sector",
+    "trends": [
+      "string — tendencia relevante para el proyecto"
+    ]
+  },
+
+  "competitors": [
+    {
+      "name": "string",
+      "url": "string | null",
+      "description": "string — qué hacen en 1 oración",
+      "strengths": ["string — punto fuerte"],
+      "weaknesses": ["string — punto débil"],
+      "differentiator": "string — en qué nos diferenciamos de este competidor"
+    }
+  ],
+
+  "faqs": [
+    {
+      "question": "string — pregunta frecuente del sector",
+      "answer": "string — respuesta clara y concisa",
+      "category": "string — ej: precios, proceso, garantías, soporte"
+    }
+  ],
+
+  "market_notes": "string — observaciones adicionales relevantes para el brief"
+}

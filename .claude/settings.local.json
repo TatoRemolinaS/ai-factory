@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(New-Item -ItemType Directory -Path \"C:\\\\Users\\\\tator\\\\OneDrive\\\\Escritorio\\\\Proyects\\\\ai-factory\\\\client-onboarding\" -Force)",
+      "PowerShell(Move-Item -Path \"C:\\\\Users\\\\tator\\\\OneDrive\\\\Escritorio\\\\Proyects\\\\ai-factory\\\\Templates\\\\BRIEFING_TEMPLATE.md\" -Destination \"C:\\\\Users\\\\tator\\\\OneDrive\\\\Escritorio\\\\Proyects\\\\ai-factory\\\\client-onboarding\\\\BRIEFING_TEMPLATE.md\")",
+      "PowerShell(Move-Item -Path \"C:\\\\Users\\\\tator\\\\OneDrive\\\\Escritorio\\\\Proyects\\\\ai-factory\\\\Templates\\\\REFINEMENT_PROMPT.md\" -Destination \"C:\\\\Users\\\\tator\\\\OneDrive\\\\Escritorio\\\\Proyects\\\\ai-factory\\\\client-onboarding\\\\REFINEMENT_PROMPT.md\")",
+      "Bash(rm -rf \"C:/Users/tator/OneDrive/Escritorio/Proyects/ai-factory/{agents\" && echo \"OK\")",
+      "Bash(find \"C:/Users/tator\" -type d -name \"Claude Design\" 2>/dev/null | head -5)",
+      "Bash(mkdir -p \"C:/Users/tator/OneDrive/Escritorio/Proyects/ai-factory/client-onboarding/client-ui/src/app/api/[slug]/approve\")",
+      "Bash(rm -rf \"C:/Users/tator/OneDrive/Escritorio/Proyects/ai-factory/client-onboarding/client-ui/src/app/[slug]/api\")",
+      "WebSearch"
+    ]
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "project": "string — nombre del proyecto",
+  "mode": "preflight",
+  "generated_at": "ISO 8601",
+
+  "feeling_interpretation": "string — cómo interpretaste el feeling del brief en 2-3 oraciones",
+
+  "palettes": [
+    {
+      "id": "palette_1",
+      "name": "string — nombre evocador, ej: 'Azul Corporativo', 'Tierra Cálida'",
+      "recommended": true,
+      "origin": "brand_colors | proposed",
+      "colors": {
+        "primary": {
+          "hex": "#xxxxxx",
+          "name": "string — nombre del color, ej: 'Azul Marino'",
+          "usage": "string — ej: CTAs, headers, botones primarios"
+        },
+        "secondary": {
+          "hex": "#xxxxxx",
+          "name": "string",
+          "usage": "string"
+        },
+        "accent": {
+          "hex": "#xxxxxx",
+          "name": "string",
+          "usage": "string — elementos de énfasis, íconos, highlights"
+        },
+        "background": {
+          "hex": "#xxxxxx",
+          "name": "string",
+          "usage": "string — fondo principal"
+        },
+        "surface": {
+          "hex": "#xxxxxx",
+          "name": "string",
+          "usage": "string — cards, paneles, superficies elevadas"
+        },
+        "text_primary": {
+          "hex": "#xxxxxx",
+          "name": "string",
+          "usage": "string — texto principal"
+        },
+        "text_secondary": {
+          "hex": "#xxxxxx",
+          "name": "string",
+          "usage": "string — texto secundario, subtítulos"
+        }
+      },
+      "rationale": "string — por qué esta paleta encaja con el proyecto y el feeling",
+      "mood": ["string — palabra que describe esta paleta, ej: confianza, premium"]
+    }
+  ],
+
+  "typography": [
+    {
+      "id": "typo_1",
+      "name": "string — nombre evocador, ej: 'Clásico Profesional', 'Moderno Limpio'",
+      "recommended": true,
+      "heading": {
+        "family": "string — nombre exacto de la fuente",
+        "google_fonts_url": "string — URL de Google Fonts",
+        "weights": ["700", "600"],
+        "style": "string — ej: serif, sans-serif, display",
+        "usage": "string — H1, H2, títulos de sección"
+      },
+      "body": {
+        "family": "string",
+        "google_fonts_url": "string",
+        "weights": ["400", "500"],
+        "style": "string",
+        "usage": "string — párrafos, descripciones, UI labels"
+      },
+      "scale": {
+        "h1": "string — ej: 3rem / 48px",
+        "h2": "string — ej: 2.25rem / 36px",
+        "h3": "string — ej: 1.5rem / 24px",
+        "body": "string — ej: 1rem / 16px",
+        "small": "string — ej: 0.875rem / 14px"
+      },
+      "rationale": "string — por qué esta tipografía encaja con el proyecto"
+    }
+  ],
+
+  "design_notes": "string — observaciones adicionales sobre el feeling visual del proyecto"
+}

@@ -1,0 +1,154 @@
+{
+  "project": {
+    "name": "string",
+    "slug": "string — lowercase, guiones, sin espacios",
+    "type": "landing | app | both",
+    "description": "string — 2-3 oraciones del brief",
+    "timeline": "string",
+    "generated_at": "ISO 8601 timestamp"
+  },
+
+  "market_context": {
+    "sector": "string",
+    "problem_statement": "string — el dolor que resuelve el proyecto",
+    "competitors": [
+      {
+        "name": "string",
+        "url": "string | null",
+        "differentiator": "string — en qué se diferencia nuestro proyecto de este"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "string — pregunta frecuente del sector",
+        "answer": "string — respuesta sugerida para el chat IA"
+      }
+    ],
+    "market_notes": "string — observaciones adicionales de Research"
+  },
+
+  "users": [
+    {
+      "role": "string",
+      "description": "string",
+      "technical_level": "low | medium | high",
+      "primary": true
+    }
+  ],
+
+  "features": {
+    "mvp": [
+      {
+        "id": "string — snake_case",
+        "name": "string",
+        "description": "string",
+        "priority": 1,
+        "confirmed": true
+      }
+    ],
+    "nice_to_have": [
+      {
+        "id": "string",
+        "name": "string",
+        "description": "string",
+        "priority": 2,
+        "confirmed": false
+      }
+    ],
+    "out_of_scope": ["string"]
+  },
+
+  "design": {
+    "feeling": ["string — palabra clave del brief"],
+    "references": [
+      {
+        "url": "string | null",
+        "description": "string",
+        "aspect": "string — qué aspecto de esta referencia interesa"
+      }
+    ],
+    "palettes": [
+      {
+        "id": "palette_1",
+        "name": "string — nombre evocador, ej: 'Azul Corporativo'",
+        "recommended": true,
+        "colors": {
+          "primary": "#xxxxxx",
+          "secondary": "#xxxxxx",
+          "accent": "#xxxxxx",
+          "background": "#xxxxxx",
+          "surface": "#xxxxxx",
+          "text_primary": "#xxxxxx",
+          "text_secondary": "#xxxxxx"
+        },
+        "rationale": "string — por qué esta paleta encaja con el proyecto"
+      }
+    ],
+    "typography": [
+      {
+        "id": "typo_1",
+        "name": "string — nombre evocador, ej: 'Clásico Profesional'",
+        "recommended": true,
+        "heading": {
+          "family": "string — nombre de la fuente",
+          "google_fonts_url": "string | null",
+          "weight": "string — ej: 700"
+        },
+        "body": {
+          "family": "string",
+          "google_fonts_url": "string | null",
+          "weight": "string — ej: 400"
+        },
+        "rationale": "string"
+      }
+    ],
+    "logo": {
+      "status": "provided | needs_redesign | to_create",
+      "format": "svg | png | none",
+      "notes": "string | null"
+    }
+  },
+
+  "pending_questions": [
+    {
+      "id": "q1",
+      "question": "string — pregunta para el cliente",
+      "context": "string — por qué importa responder esto",
+      "options": [
+        {
+          "label": "string",
+          "value": "string",
+          "recommended": false
+        }
+      ],
+      "answered": false,
+      "answer": null
+    }
+  ],
+
+  "tech": {
+    "stack_suggestion": {
+      "frontend": "string",
+      "backend": "string",
+      "database": "string",
+      "hosting": "string",
+      "notes": "string | null"
+    },
+    "integrations": [
+      {
+        "service": "string",
+        "purpose": "string",
+        "mvp": true
+      }
+    ]
+  },
+
+  "approval": {
+    "status": "pending | approved",
+    "approved_at": null,
+    "approved_by": null,
+    "selected_palette": null,
+    "selected_typography": null,
+    "notes": null
+  }
+}

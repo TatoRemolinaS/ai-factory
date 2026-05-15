@@ -1,0 +1,22 @@
+# Secrets — NUNCA subir al repo
+.env
+
+# Workspace activo (proyectos en construcción)
+# Solo suben los templates
+workspace/*
+!workspace/templates/
+!workspace/templates/**
+!workspace/.archive/
+!workspace/.gitkeep
+
+# Docker volumes
+pg_data/
+chroma_data/
+openclaw_data/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

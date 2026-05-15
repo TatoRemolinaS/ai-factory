@@ -1,0 +1,84 @@
+{
+  "project": "string — nombre del proyecto",
+  "mode": "fabrica",
+  "generated_at": "ISO 8601",
+
+  "stack": {
+    "frontend": {
+      "technology": "string",
+      "version": "string — versión estable actual verificada con búsqueda web",
+      "key_libraries": [
+        {
+          "name": "string",
+          "version": "string",
+          "purpose": "string — para qué feature específica del MVP"
+        }
+      ],
+      "notes": "string | null"
+    },
+    "backend": {
+      "technology": "string",
+      "version": "string",
+      "key_libraries": [
+        {
+          "name": "string",
+          "version": "string",
+          "purpose": "string"
+        }
+      ],
+      "notes": "string | null"
+    },
+    "database": {
+      "technology": "string",
+      "version": "string",
+      "schema_notes": "string — consideraciones de modelo de datos",
+      "notes": "string | null"
+    },
+    "hosting": {
+      "platform": "string",
+      "tier_recommendation": "string — plan o tier sugerido",
+      "estimated_cost": "string — rango mensual aproximado",
+      "notes": "string | null"
+    }
+  },
+
+  "integrations": [
+    {
+      "service": "string",
+      "purpose": "string",
+      "api_version": "string",
+      "docs_url": "string",
+      "rate_limits": "string | null",
+      "estimated_cost": "string | null",
+      "implementation_notes": "string — consideraciones clave para el CTO"
+    }
+  ],
+
+  "complexity_analysis": [
+    {
+      "feature_id": "string — ID del feature del Project Dictionary",
+      "feature_name": "string",
+      "complexity": "low | medium | high",
+      "rationale": "string — por qué esta complejidad",
+      "risks": ["string — riesgo específico"],
+      "dependencies": ["string — IDs de features de las que depende"]
+    }
+  ],
+
+  "security": {
+    "considerations": ["string — consideración de seguridad específica al proyecto"],
+    "compliance": ["string — regulación o estándar relevante, ej: GDPR, PCI, HIPAA"],
+    "recommendations": ["string — acción concreta recomendada"]
+  },
+
+  "technical_risks": [
+    {
+      "risk": "string — descripción del riesgo",
+      "probability": "low | medium | high",
+      "impact": "low | medium | high",
+      "mitigation": "string — cómo mitigarlo"
+    }
+  ],
+
+  "research_notes": "string — observaciones adicionales para el CTO"
+}

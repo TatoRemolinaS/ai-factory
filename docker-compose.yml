@@ -1,0 +1,93 @@
+version: "3.9"
+
+services:
+  # ─────────────────────────────────────────
+  # OpenClaw — Runtime de agentes
+  # Web UI:   http://localhost:8080
+  # Admin API: http://localhost:3000
+  # ─────────────────────────────────────────
+  openclaw:
+    image: openclaw/openclaw:latest
+    container_name: factory-openclaw
+    restart: unless-stopped
+    ports:
+      - "8080:8080"   # Web UI
+      - "3000:3000"   # Admin API
+      - "4222:4222"   # NATS gateway (A2A entre agentes)
+    volumes:
+      - ./workspace:/workspace            # Workspace compartido entre agentes
+      - ./agents/system-prompts:/prompts  # System prompts de cada agente (solo lectura)
+      - openclaw_data:/data
+    env_file: .env
+    depends_on:
+      postgres:
+        condition: service_healthy
+      chromadb:
+        condition: service_started
+
+  # ─────────────────────────────────────────
+  # Client UI — Next.js para onboarding con el cliente
+  # URL: http://localhost:3001
+  # Arrancar solo durante la sesión de onboarding:
+  #   docker compose --profile onboarding up -d
+  # ─────────────────────────────────────────
+  client-ui:
+    build:
+      context: ./client-onboarding/client-ui
+      dockerfile: Dockerfile
+    container_name: factory-client-ui
+    restart: unless-stopped
+    ports:
+      - "3001:3001"
+    environment:
+      FACTORY_ADMIN_URL: http://openclaw:3000
+      CLIENT_UI_SECRET: ${CLIENT_UI_SECRET}
+      WORKSPACE_PATH: /workspace
+    volumes:
+      - ./workspace:/workspace:ro
+    depends_on:
+      - openclaw
+    profiles:
+      - onboarding
+
+  # ─────────────────────────────────────────
+  # PostgreSQL — Estado de agentes y proyectos
+  # ─────────────────────────────────────────
+  postgres:
+    image: postgres:16-alpine
+    container_name: factory-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: factory
+      POSTGRES_USER: openclaw
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"   # Expuesto para debug local — cerrar en producción
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U openclaw -d factory"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  # ─────────────────────────────────────────
+  # ChromaDB — RAG / búsqueda semántica de soluciones previas
+  # API: http://localhost:8000
+  # ─────────────────────────────────────────
+  chromadb:
+    image: chromadb/chroma:latest
+    container_name: factory-chromadb
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    volumes:
+      - chroma_data:/chroma/chroma
+    environment:
+      CHROMA_SERVER_HOST: 0.0.0.0
+
+volumes:
+  openclaw_data:
+  pg_data:
+  chroma_data:
